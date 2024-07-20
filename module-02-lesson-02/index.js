@@ -222,8 +222,14 @@
 //   return paginationArr[page - 1];
 // }
 
-// // Виклич функції для перевірки працездатності твоєї реалізації.
-// console.log(createGroups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 2, 1));
+// function createGroups(data, per_page, page) {
+//   const start = (page - 1) * per_page;
+//   const end = start + per_page;
+//   return data.slice(start, end);
+// }
+
+// Виклич функції для перевірки працездатності твоєї реалізації.
+// console.log(createGroups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 2, 5));
 // console.log(createGroups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6, 2));
 // console.log(createGroups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 4, 3));
 // console.log(createGroups([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 4, 4));
