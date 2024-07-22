@@ -391,12 +391,29 @@ const stringArr = [
 
 function checkLineForContentOfTwoIdenticalChars(arr) {
   const obj = {};
+  const goodArr = [];
 
   for (const item of arr) {
-    obj[item] = item;
+    const objInObj = (obj[item] = {});
+    for (const letter of item.split("")) {
+      objInObj[letter] ? (objInObj[letter] += 1) : (objInObj[letter] = 1);
+      // if (objInObj[letter] > 1 && objInObj[letter] < 3) {
+      //   goodArr.push(item);
+      // }
+    }
   }
 
-  console.log(obj);
+  const values = Object.values(obj);
+
+  for (const value of values) {
+    console.log(value);
+  }
+
+  return obj;
 }
 
 console.log(checkLineForContentOfTwoIdenticalChars(stringArr));
+
+//   for (const item of arr) {
+//     newArr[item] ? (newArr[item] += 1) : (newArr[item] = 1);
+//   }
