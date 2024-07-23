@@ -389,31 +389,59 @@ const stringArr = [
   "aaabb",
 ];
 
-function checkLineForContentOfTwoIdenticalChars(arr) {
-  const obj = {};
-  const goodArr = [];
-
-  for (const item of arr) {
-    const objInObj = (obj[item] = {});
-    for (const letter of item.split("")) {
-      objInObj[letter] ? (objInObj[letter] += 1) : (objInObj[letter] = 1);
-      // if (objInObj[letter] > 1 && objInObj[letter] < 3) {
-      //   goodArr.push(item);
-      // }
-    }
-  }
-
-  const values = Object.values(obj);
-
-  for (const value of values) {
-    console.log(value);
-  }
-
-  return obj;
-}
-
-console.log(checkLineForContentOfTwoIdenticalChars(stringArr));
+//my
+// function checkLineForContentOfTwoIdenticalChars(arr) {
+//   const obj = {};
+//   const goodArr = [];
 
 //   for (const item of arr) {
-//     newArr[item] ? (newArr[item] += 1) : (newArr[item] = 1);
+//     const objInObj = (obj[item] = {});
+//     for (const letter of item.split("")) {
+//       objInObj[letter] ? (objInObj[letter] += 1) : (objInObj[letter] = 1);
+//     }
+//     for (const value in objInObj) {
+//       if (objInObj[value] === 2) {
+//         goodArr.push(item);
+//       }
+//     }
 //   }
+
+//   for (let i = 0; i < goodArr.length; i += 1) {
+//     if (!(goodArr.indexOf(goodArr[i]) === i)) {
+//       goodArr.splice(i, 1);
+//     }
+//   }
+
+//   return goodArr;
+// }
+
+// bot
+// function checkLineForContentOfTwoIdenticalChars(lines) {
+//   const result = [];
+
+//   for (const line of lines) {
+//     const charCount = {};
+
+//     for (const char of line) {
+//       if (char !== " ") {
+//         charCount[char] = (charCount[char] || 0) + 1;
+//       }
+//     }
+
+//     let hasTwoIdenticalChars = false;
+//     for (const count of Object.values(charCount)) {
+//       if (count === 2) {
+//         hasTwoIdenticalChars = true;
+//         break;
+//       }
+//     }
+
+//     if (hasTwoIdenticalChars) {
+//       result.push(line);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(checkLineForContentOfTwoIdenticalChars(stringArr));
