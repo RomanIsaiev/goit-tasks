@@ -17,8 +17,8 @@ function logProduct() {}
 
 function logTotalPrice() {}
 
-createProduct({ name: '🍎', price: 30, quantity: 3 }, logProduct);
-createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
+createProduct({ name: "🍎", price: 30, quantity: 3 }, logProduct);
+createProduct({ name: "🍋", price: 20, quantity: 5 }, logTotalPrice);
 ```
 
 ### 2. В об'єкта `account` є методи `withdraw(amount, onSuccess, onError)` та `deposit(amount, onSuccess, onError)`, де перший параметр це сума операції, а другий та третій - коллбеки.
@@ -31,7 +31,7 @@ createProduct({ name: '🍋', price: 20, quantity: 5 }, logTotalPrice);
 const TRANSACTION_LIMIT = 1000;
 
 const account = {
-  username: 'Jacob',
+  username: "Jacob",
   balance: 1000,
   withdraw(amount, onSuccess, onError) {},
   deposit(amount, onSuccess, onError) {},
@@ -48,10 +48,12 @@ account.deposit(0, handleSuccess, handleError);
 account.deposit(-600, handleSuccess, handleError);
 account.deposit(600, handleSuccess, handleError);
 ```
+
 ### 3. Створи стрілочну функцію `logItems()`, яка виводитьв консоль елементи масива, зроби перебір за допомогою методу `forEach()`.
+
 ```js
-logItems(['Mango', 'Poly', 'Ajax']);
-logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
+logItems(["Mango", "Poly", "Ajax"]);
+logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
 ```
 
 ### 4. Напишіть функцію `each(array, callback)`, яка першим параметром очікує масив, а другим - функцію, яка застосовується до кожного елемента масиву. Функція each повинна повернути новий масив, елементами якого будуть результати виклику коллбека. Використай `forEach()` для перебору масива
@@ -87,28 +89,29 @@ console.log(
 ```
 
 ## 5. Напишіть функцію `groupBy()`, яка групує елементи з масиву за значенням, що повертається зворотним викликом, коли елемент із масиву передається як аргумент.
+
 ```js
 const users = [
   {
-    name: 'John',
+    name: "John",
     yearOfBirth: 1988,
-    placeOfBirth: 'New York',
+    placeOfBirth: "New York",
   },
   {
-    name: 'Nancy',
+    name: "Nancy",
     yearOfBirth: 1963,
-    placeOfBirth: 'New York',
+    placeOfBirth: "New York",
   },
   {
-    name: 'John',
+    name: "John",
     yearOfBirth: 1980,
-    placeOfBirth: 'Toronto',
+    placeOfBirth: "Toronto",
   },
 ];
 
-function groupBy(users, callback){}
+function groupBy(users, callback) {}
 
-console.log(groupBy(users, objectEl => objectEl.placeOfBirth));
+console.log(groupBy(users, (objectEl) => objectEl.placeOfBirth));
 //Очікуваний резульат:
 // {
 //   ❗️New York: [
