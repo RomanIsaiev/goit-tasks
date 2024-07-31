@@ -86,12 +86,15 @@ console.log(getNamesSortedByFriendsCount(users));
 // Отримати масив усіх умінь всіх користувачів (поле `skills`), при цьому не має
 // бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 
-const getSortedUniqueSkills = (users) =>
-  users.reduce((acc, user) => {
+const getSortedUniqueSkills = (users) => {
+  const array = users.reduce((acc, user) => {
     acc.push(...user.skills);
 
-    return acc.map((item, index) => acc.indexOf(item) === index);
+    return acc;
   }, []);
+
+  return array.filter((item, pos) => array.indexOf(item) === pos);
+};
 
 console.log(getSortedUniqueSkills(users));
 // ['adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit' , 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam'
