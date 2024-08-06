@@ -224,102 +224,160 @@
 // - `findAvailableBooks()` - повертає масив книг, які є в наявності (available === true)
 // - `findUserBooks(user)` - повертає масив книг, взятих користувачем (user), якщо користувач зареєстрований, або повідомлення про незареєстрованого користувача, якщо користувач не знайдений.
 
-class Book {
-  constructor({ title, author, available = false }) {
-    this.title = title;
-    this.author = author;
-    this.available = available;
-  }
+// class Book {
+//   constructor({ title, author, available = false }) {
+//     this.title = title;
+//     this.author = author;
+//     this.available = available;
+//   }
 
-  getDetails() {
-    return `${this.title} - ${this.author}`;
-  }
+//   getDetails() {
+//     return `${this.title} - ${this.author}`;
+//   }
 
-  toggleAvailability() {
-    this.available = true;
-  }
-}
+//   toggleAvailability() {
+//     if (this.available) {
+//       this.available = false;
+//     } else {
+//       this.available = true;
+//     }
+//   }
+// }
 
-class User {
-  constructor(fullName, books) {
-    this.fullName = fullName;
-    this.books = books;
-  }
+// class User extends Book {
+//   constructor(fullName, books = [], book) {
+//     super({ book });
+//     this.fullName = fullName;
+//     this.books = books;
+//   }
 
-  getDetails() {
-    return this.fullName;
-  }
+//   getDetails() {
+//     return this.fullName;
+//   }
 
-  borrowBook(book) {}
-}
+//   borrowBook(book) {
+//     if (book.available) {
+//       this.books.push(book);
+//       book.toggleAvailability();
+//     }
+//   }
+// }
 
-class Library {
-  constructor(books = [], users) {
-    this.books = books;
-    this.users = users;
-  }
+// class Library extends User {
+//   constructor(user, books = [], users = []) {
+//     super({ user });
+//     this.books = books;
+//     this.users = users;
+//   }
 
-  addBook(book) {
-    this.books.push(book);
-  }
+//   addBook(book) {
+//     this.books.push(book);
+//     book.toggleAvailability();
+//   }
 
-  removeBook(book) {}
+//   removeBook(book) {
+//     const bookIdx = this.books.indexOf(book);
+//     this.books.splice(bookIdx, 1);
+//   }
 
-  addUser(user) {}
+//   addUser(user) {
+//     this.users.push(user);
+//   }
 
-  removeUser(user) {}
+//   removeUser(user) {
+//     const userIdx = this.users.indexOf(user);
+//     this.users.splice(userIdx, 1);
+//   }
 
-  findAvailableBooks() {}
+//   findAvailableBooks() {
+//     return this.books.filter((item) => item.available);
+//   }
 
-  findUserBooks(user) {}
-}
+//   findUserBooks(user) {
+//     return this.users.find((item) => {
+//       if (item.fullName === user) {
+//         return item.books;
+//       }
+//     });
+//   }
+// }
 
-// Створення книг
-const book1 = new Book({
-  title: "Harry Potter and the Philosopher's Stone",
-  author: "Joanne Rowling",
-});
-const book2 = new Book({
-  title: "The Hobbit",
-  author: "John Ronald Reuel Tolkien",
-});
-const book3 = new Book({
-  title: "The Clean Coder",
-  author: "Robert C. Martin",
-});
+// // Створення книг
+// const book1 = new Book({
+//   title: "Harry Potter and the Philosopher's Stone",
+//   author: "Joanne Rowling",
+// });
+// const book2 = new Book({
+//   title: "The Hobbit",
+//   author: "John Ronald Reuel Tolkien",
+// });
+// const book3 = new Book({
+//   title: "The Clean Coder",
+//   author: "Robert C. Martin",
+// });
+// const book4 = new Book({
+//   title: "Lorem ipsu",
+//   author: "Robert C. Martin",
+// });
+// const book5 = new Book({
+//   title: "Dragon fight",
+//   author: "Robert C. Martin",
+// });
+// const book6 = new Book({
+//   title: "Samsubg history",
+//   author: "Robert C. Martin",
+// });
 
-// Створення користувачів
-const user1 = new User("Ethan Anderson");
-const user2 = new User("Olivia Johnson");
+// // Створення користувачів
+// const user1 = new User("Ethan Anderson");
+// const user2 = new User("Olivia Johnson");
+// const user3 = new User("Boba Johnson");
 
-// Створення бібліотеки
-const library = new Library();
+// // Створення бібліотеки
+// const library = new Library();
 
-// Додавання книг до бібліотеки
-library.addBook(book1);
-library.addBook(book2);
-library.addBook(book3);
+// // Додавання книг до бібліотеки
+// library.addBook(book1);
+// library.addBook(book2);
+// library.addBook(book3);
+// library.addBook(book4);
+// library.addBook(book5);
+// library.addBook(book6);
 
-console.log(library.books);
+// console.log(library.books);
 
-// Додавання користувачів до бібліотеки
-library.addUser(user1);
-library.addUser(user2);
+// library.removeBook(book2);
 
-// Позичення книг
-user1.getDetails();
+// console.log(library.books);
 
-user1.borrowBook({
-  title: "The Fault in Our Stars",
-  author: "John Green",
-});
-user1.borrowBook(book1);
+// // Додавання користувачів до бібліотеки
+// library.addUser(user1);
+// library.addUser(user2);
+// library.addUser(user3);
 
-user1.getDetails();
+// console.log(library.users);
 
-// Пошук книг які позичив користувач
-library.findUserBooks("Sofia Protsiv");
-library.findUserBooks("Ethan Anderson");
+// library.removeUser(user3);
 
-// Пошук книг які ще доступні
-library.findAvailableBooks();
+// console.log(library.users);
+
+// // Позичення книг
+// console.log(user1.getDetails());
+
+// user1.borrowBook({
+//   title: "The Fault in Our Stars",
+//   author: "John Green",
+// });
+
+// user1.borrowBook(book1);
+
+// user1.getDetails();
+
+// console.log(library.users);
+
+// // Пошук книг які позичив користувач
+// console.log(library.findUserBooks("Sofia Protsiv"));
+// console.log(library.findUserBooks("Ethan Anderson"));
+
+// // Пошук книг які ще доступні
+// console.log(library.findAvailableBooks());
