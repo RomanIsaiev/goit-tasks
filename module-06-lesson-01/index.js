@@ -92,3 +92,34 @@
 // list.insertAdjacentHTML("beforeend", newItem);
 
 // list.innerHTML = "";
+
+//* ## 2. Вам надано кілька масивів з різними фруктами (назва масиві вказує на те, куди потрібно помістити елементи відносно ul). `Створи` html-елемент списку і `додай` його у розмітку. Попрактикуйся з методами `append`, `prepend`, `after`, `before` заповнивши ними список елементами з масивів. Для зручності створи допоміжну функцію `elementsOfIngridients`, яка повертатиме масив елементів (масив з лішками).
+
+// const appendFruitList = ["apple🍎", "banana🍌"];
+// const prependFruitList = ["grapes🍇", "orange🍊"];
+// const beforeFruitList = ["strawberry🍓", "cherry🍒"];
+// const afterFruitList = ["peach🍑", "kiwi🥝"];
+
+// const body = document.querySelector("body");
+// const createList = document.createElement("ul");
+
+// body.prepend(createList);
+// const fruitList = createList;
+
+// function elementsOfIngredients(fruits) {
+//   return fruits.map((fruit) => {
+//     const li = document.createElement("li");
+//     li.textContent = fruit;
+//     return li;
+//   });
+// }
+
+// const appendItems = elementsOfIngredients(appendFruitList);
+// const prependItems = elementsOfIngredients(prependFruitList);
+// const beforeItems = elementsOfIngredients(beforeFruitList);
+// const afterItems = elementsOfIngredients(afterFruitList);
+
+// appendItems.forEach((item) => fruitList.append(item));
+// prependItems.forEach((item) => fruitList.prepend(item));
+// beforeItems.forEach((item) => fruitList.before(item));
+// afterItems.forEach((item) => fruitList.after(item));
