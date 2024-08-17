@@ -123,3 +123,123 @@
 // prependItems.forEach((item) => fruitList.prepend(item));
 // beforeItems.forEach((item) => fruitList.before(item));
 // afterItems.forEach((item) => fruitList.after(item));
+
+// * ## 3. Різниця між textContent i innerText. Що буде у консолі?
+
+// const innerText = document.getElementById("container").innerText;
+// const textContent = document.getElementById("container").textContent;
+// console.log("innerText: ", innerText);
+// console.log("textContent: ", textContent);
+
+// * ## 4. Різниця між outerHTML i innerHTML. Що буде у консолі?
+
+// const outerHTML = document.getElementById("container").outerHTML;
+// const innerHTML = document.getElementById("container").innerHTML;
+// console.log("outerHTML: ", outerHTML);
+// console.log("innerHTML: ", innerHTML);
+
+// * ## 5. Вставте даний текст в html документ, а потім виділіть усі слова, які мають більше 8 символів у тексті абзацу (наприклад, жовтим фоном).
+
+// const body = document.querySelector("body");
+// const createText = document.createElement("p");
+
+// const text = `Об'єктна модель документа (Document Object Model) - незалежний від мови інтерфейс для роботи з HTML-документом. Містить набір властивостей і методів, що дозволяють шукати, створювати і видаляти елементи, реагувати на дії користувача і багато іншого. Тобто з'єднує сторінку з мовою програмування.`;
+
+// createText.textContent = text;
+
+// body.prepend(createText);
+
+// const content = createText.textContent.split(" ");
+
+// const result = content.map((item) => {
+//   if (item.length > 8) {
+//     item = `<span style="background-color: yellow;">${item}</span>`;
+//   }
+//   return item;
+// });
+
+// createText.innerHTML = result.join(" ");
+
+// * ## 6. Створіть контейнер div (з класом numberContainer )в HTML-документі та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними числами від 1 до 100 і додайте їх до контейнера div(numberContainer). Парні числа повинні мати зелений фон (додати клас even), Непарні числа - жовтий фон (додати клас odd).
+
+const numberContainer = document.querySelector(".numberContainer");
+
+const numbersArray = [];
+
+// for (let i = 1; i <= 100; i += 1) {
+//   const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+//   if (!(randomNumber % 2)) {
+//     numbersArray.push(`<div class='even'>${randomNumber}</div>`);
+//   } else {
+//     numbersArray.push(`<div class='odd'>${randomNumber}</div>`);
+//   }
+// }
+
+// * best
+
+// for (let i = 1; i <= 100; i += 1) {
+//   const randomNumber = Math.floor(Math.random() * 100) + 1;
+//   const key = randomNumber % 2 ? "odd" : "even";
+//   const item = `<div class=${key}>${randomNumber}</div>`;
+//   numbersArray.push(item);
+// }
+
+// numberContainer.innerHTML = numbersArray.join(" ");
+
+// * ## 7. Створи HTML список фільмів на основі масиву під назвою films. Користувач обожнює дивитися кіно, дивиться його часто, тому при вході на сторінку він хоче бачити, які фільми вже були переглянуті, а до яких він ще не добрався. Вперу чергу зарендери фільми на сторінку, використовуй допоміжну функцію `createMarkup()`, яка буде повертати розмітку. Додай розмітку на сторінку задопомогою `insertAdjacentHTML()` і тільки після цього зроби елементи фільмів (li), які вже були переглянуті напівпрозорими (opacity: 0.5). Для цього використовуй масив унікальних id фільмів, знайди на сторінці елементи у яких id дорівнює тому id фільма, який користувач вже перелянув аби саме їх зробити напівпрозорими.
+
+const filmsList = document.querySelector(".films-list");
+
+const films = [
+  {
+    title: "Tetris",
+    imgUrl: "https://static.hdrezka.ac/i/2023/3/20/f509264b419fdmu53x38j.jpg",
+    id: "film_1",
+  },
+  {
+    title: "Avatar: The Way of Water",
+    imgUrl: "https://static.hdrezka.ac/i/2022/12/22/tc5e6b8212683gn66r84s.jpg",
+    id: "film_2",
+  },
+  {
+    title: "Operation Fortune: Ruse de guerre",
+    imgUrl: "https://static.hdrezka.ac/i/2022/2/11/s0d53f6cf0ae0tq29m85l.jpg",
+    id: "film_3",
+  },
+  {
+    title: "Babylon",
+    imgUrl: "https://static.hdrezka.ac/i/2022/12/25/z330b47a82209ww99w55a.jpg",
+    id: "film_4",
+  },
+  {
+    title: "The Whale",
+    imgUrl: "https://static.hdrezka.ac/i/2023/2/24/h23d8c65d734akd89q94c.jpg",
+    id: "film_5",
+  },
+];
+
+// Приклад елементу списку
+// <li data-id="${id}">
+//      <img src="${imgUrl}" alt="${title}" />
+//      <p>${title}</p>
+// </li>
+
+const watchedFilms = ["film_2", "film_4", "film_5"];
+
+function createMarkup(films) {
+  films.map((item) => {
+    const { id, imgUrl, title } = item;
+
+    const markup = `<li data-id="${id}">
+                    <img src="${imgUrl}" alt="${title}" />      
+                    <p>${title}</p>
+                    </li>`;
+
+    filmsList.insertAdjacentHTML("beforeend", markup);
+  });
+
+  console.log(filmsList);
+}
+
+createMarkup(films);

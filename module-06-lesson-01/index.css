@@ -1,3 +1,32 @@
 .active {
   color: red;
 }
+
+.numberContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.number {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.even {
+  background-color: #8bc34a;
+
+  padding: 20px;
+}
+
+.odd {
+  background-color: #ffeb3b;
+
+  padding: 20px;
+}
